@@ -35,6 +35,7 @@ function Timer() {
     // Making "busy" button appear instead of "free" button
     busyButtons[Number(this.id) - 1].style.display = "inline-block";
     freeButtons[Number(this.id) - 1].style.display = "none";
+    this.style.display = "none";
     images[Number(this.id) - 1].src = busyImage;
     this.logic = () => {
             timer_minutes[Number(this.id) - 1].textContent = Math.floor(waitSeconds / 60); 
@@ -45,14 +46,12 @@ function Timer() {
     // Calling a function before setInterval to run instantly
     this.logic();
     let interval = setInterval(this.logic, 1000);
-    console.log(this);
     setTimeout(() => {
         
         busyButtons[Number(this.id) - 1].style.display = "none";
         freeButtons[Number(this.id) - 1].style.display = "inline-block";
+        this.style.display = "inline-block";
         images[Number(this.id) - 1].src = freeImage;
         clearInterval(interval);
     }, (waitSeconds+1) * 1000);
 }
-console.log(1);
-
