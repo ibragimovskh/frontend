@@ -54,4 +54,5 @@ function Timer() {
         clearInterval(interval);
     }, (waitSeconds+1) * 1000);
 }
+console.log(1);
 
